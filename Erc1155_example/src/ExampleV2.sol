@@ -6,19 +6,23 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract MyToken is
+contract MyTokenV2 is
     Initializable,
     ERC1155Upgradeable,
     OwnableUpgradeable,
     UUPSUpgradeable
 {
+    uint256 public number;
+
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
         _disableInitializers();
     }
 
     function initialize(address initialOwner) public initializer {
-        __ERC1155_init("");
+        __ERC1155_init(
+            "https://api.frank.hk/api/nft/demo/1155/marvel/{id}.json"
+        );
         __Ownable_init(initialOwner);
         __UUPSUpgradeable_init();
     }
@@ -48,4 +52,10 @@ contract MyToken is
     function _authorizeUpgrade(
         address newImplementation
     ) internal override onlyOwner {}
+
+    //to ensure upgarde success
+    function add(uint256 n) external {
+        require(n <= 10, "Max increment is 10");
+        number += n;
+    }
 }

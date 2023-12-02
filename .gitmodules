@@ -7,3 +7,9 @@
 [submodule "Erc1155_example/lib/openzeppelin-contracts-upgradeable"]
 	path = Erc1155_example/lib/openzeppelin-contracts-upgradeable
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "Erc1155_example/lib/foundry-devops"]
+	path = Erc1155_example/lib/foundry-devops
+	url = https://github.com/Cyfrin/foundry-devops
+[submodule "Erc1155_example/lib/openzeppelin-foundry-upgrades"]
+	path = Erc1155_example/lib/openzeppelin-foundry-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
